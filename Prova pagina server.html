@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Fairy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .background-wrapper {
+      background-image: url('project.jpg');
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      
+      min-height: 95vh;
+      box-sizing: border-box;
+      padding-top: 20px;
+      padding-bottom: 8vh;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      color: #000;
+    }
+
+    .close-btn {
+      background-color: #e74c3c;
+      margin-top: 10px;
+      color: white;
+    }
+
+    a {
+      font-size: 18px;
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background-wrapper">
+    <h1>Project Fairy</h1>
+
+    <div class="container">
+      <button onclick="openModal('launcher')">Clicca qui per ricevere il Launcher</button>
+      <script>const linkLauncher = "[INSERISCI IL LINK QUI]";</script>
+
+      <button onclick="openModal('build')">Clicca qui per ricevere la Build</button>
+      <script>const linkBuild = "[INSERISCI IL LINK QUI]";</script>
+
+      <button onclick="openModal('tutorial')">Clicca qui per vedere tutti i Tutorial</button>
+      <script>const linkTutorial = "[INSERISCI IL LINK QUI]";</script>
+    </div>
+
+    <!-- Modale Launcher -->
+    <div id="modal-launcher" class="modal">
+      <div class="modal-content">
+        <h2>Launcher</h2>
+        <p>Scarica il launcher ufficiale per Project Fairy.</p>
+        <p><a href="#" id="launcher-link">👉 Link per il Launcher</a></p> 
+        <button class="close-btn" onclick="closeModal('launcher')">Chiudi</button>
+      </div>
+    </div>
+
+    <!-- Modale Build -->
+    <div id="modal-build" class="modal">
+      <div class="modal-content">
+        <h2>Build</h2>
+        <p>Ottieni l'ultima versione della Build di Project Fairy.</p>
+        <p><a href="#" id="build-link">👉 Link per la Build</a></p> 
+        <button class="close-btn" onclick="closeModal('build')">Chiudi</button>
+      </div>
+    </div>
+
+    <!-- Modale Tutorial -->
+    <div id="modal-tutorial" class="modal">
+      <div class="modal-content">
+        <h2>Tutorial</h2>
+        <p>Consulta i tutorial per imparare ad usare Project Fairy.</p>
+        <p><a href="#" id="tutorial-link">👉 Link ai Tutorial</a></p>
+        <button class="close-btn" onclick="closeModal('tutorial')">Chiudi</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById('modal-' + id).style.display = 'none';
+    }
+
+    // Aggiorna i link dinamicamente quando si apre il modale
+    document.getElementById("launcher-link").href = linkLauncher;
+    document.getElementById("build-link").href = linkBuild;
+    document.getElementById("tutorial-link").href = linkTutorial;
+  </script>
+
+</body>
+
+</html>
